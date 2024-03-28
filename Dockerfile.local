@@ -43,6 +43,9 @@ COPY --chown=worker private_gpt/ private_gpt
 COPY --chown=worker fern/ fern
 COPY --chown=worker *.yaml *.md ./
 COPY --chown=worker scripts/ scripts
+COPY pyproject.toml poetry.lock ./
+
+RUN pipx install poetry
 
 ENV PYTHONPATH="$PYTHONPATH:/private_gpt/"
 
